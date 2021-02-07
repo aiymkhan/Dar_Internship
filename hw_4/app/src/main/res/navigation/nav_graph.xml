@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/firstFragment">
+
+    <fragment
+        android:id="@+id/firstFragment"
+        android:name="com.example.hw_4.FirstFragment"
+        android:label="fragment_first"
+        tools:layout="@layout/fragment_first" >
+        <action
+            android:id="@+id/action_firstFragment_to_newGameFragment"
+            app:destination="@id/newGameFragment" />
+        <action
+            android:id="@+id/action_firstFragment_to_userRecordsFragment2"
+            app:destination="@id/userRecordsFragment2" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/newGameFragment"
+        android:name="com.example.hw_4.NewGameFragment"
+        android:label="fragment_second"
+        tools:layout="@layout/fragment_new_game" >
+        <action
+            android:id="@+id/action_newGameFragment_to_actualGameFragment"
+            app:destination="@id/actualGameFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/actualGameFragment"
+        android:name="com.example.hw_4.ActualGameFragment"
+        android:label="fragment_actual_game"
+        tools:layout="@layout/fragment_actual_game" >
+        <argument
+            android:name="names"
+            app:argType="string[]" />
+        <action
+            android:id="@+id/action_actualGameFragment_to_userRecordsFragment2"
+            app:destination="@id/userRecordsFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/userRecordsFragment2"
+        android:name="com.example.hw_4.UserRecordsFragment"
+        android:label="fragment_user_records"
+        tools:layout="@layout/fragment_user_records" >
+        <action
+            android:id="@+id/action_userRecordsFragment2_to_firstFragment"
+            app:destination="@id/firstFragment"
+            app:popUpTo="@+id/firstFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
+</navigation>
